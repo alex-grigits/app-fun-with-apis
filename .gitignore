@@ -3,3 +3,4 @@
 .bowerrc
 gulpfile.js
 package.json
+.gitignore
