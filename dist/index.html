@@ -1,10 +1,11 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<link rel="stylesheet" href="css/libs.min.css">
 	<link rel="stylesheet" href="css/main.css">
+
 </head>
 <body>
 	<div class="container">
@@ -15,10 +16,12 @@
 	  </div>
 	  <div class="row">
 	    <div class="col-sm-4">
-	      <div class="tile purple">
-	        <h3 class="title">Purple Tile</h3>
-	        <p>Hello Purple, this is a colored tile.</p>
-	      </div>
+				<a href="http://google.com">
+		      <div class="tile purple">
+		        <h3 class="title">Google</h3>
+		        <p>This is a link to google.com</p>
+		      </div>
+				</a>
 	    </div>
 	    <div class="col-sm-4">
 	      <div class="tile red">
@@ -29,15 +32,15 @@
 	    <div class="col-sm-4">
 	      <div class="tile orange">
 	        <h3 class="title">Orange Tile</h3>
-	        <p>Hello Orange, this is a colored tile.</p>
+	        <!-- <p>{{name}}</p> -->
 	      </div>
 	    </div>
 	  </div>
-	  <div class="row">
+	  <div class="row" ng-controller="myCtrl1">
 	    <div class="col-sm-4">
 	      <div class="tile green">
 	        <h3 class="title">Green Tile</h3>
-	        <p>Hello Green, this is a colored tile.</p>
+	        <p>{{name}}</p>
 	      </div>
 	    </div>
 	    <div class="col-sm-4">
@@ -47,21 +50,16 @@
 	      </div>
 	  	</div>
 	  </div>
-	<div class="row">
-		<div class="col-sm-8">
-			<label>Введите имя:</label>
-			<input type="text" ng-model="name" placeholder="Введите имя">
-
-			<h1>Добро пожаловать, {{name}}!</h1>
+		<div class="row" ng-controller="myCtrl2">
+			<div class="col-sm-8">
+				<label>Введите имя:</label>
+				<input type="text" ng-model="name" placeholder="Введите имя">
+				<h1>Добро пожаловать, {{name}}!</h1>
+			</div>
 		</div>
 	</div>
 
-	</div>
-
-
-
-
 	<script src="js/libs.min.js"></script>
-
+	<script src="js/common.js"></script>
 </body>
 </html>
