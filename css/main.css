@@ -54,3 +54,13 @@ strong {
     background: #DC572E; }
     .tile.orange:hover {
       background: #b8431f; }
+
+img {
+  max-width: 50px;
+  max-height: 50px;
+}
+
+td {
+  padding-left: 20px;
+  padding-right: 20px;
+}

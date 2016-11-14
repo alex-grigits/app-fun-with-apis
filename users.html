@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="myApp">
+<html lang="en" ng-app="app">
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
@@ -15,17 +15,22 @@
 
 </head>
 
-  <body>
-    <div class="container">
-      <div class="row">
-        <div class="col-sm-8">
-          <h1>Top 10 users of HitHub</h1>
-        </div>
-				<div class="col-sm-4">
-					<button class="btn btn-primary" type="button" name="button">Show</button>
-				</div>
-      </div>
-    </div>
+<body ng-controller="gitHubDataController">
+	<div class="container">
+	  <h2>First 46 GitHub Users by ID</h2>
+		<table class="table table-bordered">
+			<tr>
+				<td>ID</td>
+				<td>User's login</td>
+				<td>Avatar</td>
+			</tr>
+			<tr ng-repeat="user in usersData | filter:searchText | orderBy:predicate:reverse">
+				<td>{{user.id}}</td>
+				<td>{{user.login}}</td>
+				<td><img src="{{user.avatar_url}}" alt="ava" class="img-responsive img-rounded"/></td>
+			</tr>
+		</table>
+	</div>
 
 		<!-- JQuery CDN -->
 		<script
@@ -38,5 +43,6 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
 		<!-- Own script -->
 		<script src="js/common.js"></script>
+		<script src="js/app.js"></script>
 	</body>
 </html>
