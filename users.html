@@ -18,20 +18,25 @@
 <body ng-controller="gitHubDataController">
 	<div class="container">
 	  <h2>First 46 GitHub Users by ID</h2>
-		<table class="table table-bordered">
-			<tr>
-				<td>ID</td>
-				<td>User's login</td>
-				<td>Avatar</td>
-			</tr>
-			<tr ng-repeat="user in usersData | filter:searchText | orderBy:predicate:reverse">
-				<td>{{user.id}}</td>
-				<td>{{user.login}}</td>
-				<td><img src="{{user.avatar_url}}" alt="ava" class="img-responsive img-rounded"/></td>
-			</tr>
+		<button type="button" class="btn btn-primary" ng-click="getUsers()">Click to show users</button>
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>User's login</td>
+					<td>Avatar</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="user in usersData">
+					<td>{{user.id}}</td>
+					<td>{{user.login}}</td>
+					<td><img src="{{user.avatar_url}}" alt="ava" class="img-responsive img-rounded"/></td>
+				</tr>
+			</tbody>			
 		</table>
 	</div>
-
+	
 		<!-- JQuery CDN -->
 		<script
 	  src="https://code.jquery.com/jquery-3.1.1.min.js"

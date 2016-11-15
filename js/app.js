@@ -5,8 +5,11 @@ angular.module('app', [])
 
         $scope.userLoaded = false;
 
-        $http.get("https://api.github.com/users")
-            .success(function (data) {
-                $scope.usersData = data;
-            });
+
+        $scope.getUsers = function (){
+          $http.get("https://api.github.com/users")
+              .success(function (data) {
+                  $scope.usersData = data;
+              });
+        };
 }]);
