@@ -17,24 +17,44 @@
 
 <body ng-controller="gitHubDataController">
 	<div class="container">
-	  <h2>First 46 GitHub Users by ID</h2>
-		<button type="button" class="btn btn-primary" ng-click="getUsers()">Click to show users</button>
-		<table class="table table-hover">
-			<thead>
-				<tr>
-					<td>ID</td>
-					<td>User's login</td>
-					<td>Avatar</td>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="user in usersData">
-					<td>{{user.id}}</td>
-					<td>{{user.login}}</td>
-					<td><img src="{{user.avatar_url}}" alt="ava" class="img-responsive img-rounded"/></td>
-				</tr>
-			</tbody>			
-		</table>
+		<header class="row">
+			<h2>First GitHub Users by ID</h2>
+		</header>
+		<div class="row">
+			<div class="form-group">
+				<label for="count" class="col-sm-2 control-label">Count of Users:</label>
+				<div class="col-sm-4">
+					<input id="count" type="number" step="1" min="1" max="20" ng-model="rowLimit">
+				</div>
+				<label for="sort" class="col-sm-2 control-label">Order By:</label>
+				<div class="col-sm-4">
+					<select name="" id="sort" ng-model="sortColumn">
+						<option value="id">ID</option>
+						<option value="login">Login</option>
+					</select>
+				</div>
+			</div>
+		</div>
+	  <div class="row">
+			<div class="col-sm-12">
+				<table class="table table-hover">
+				<thead>
+					<tr>
+						<th>ID</th>
+						<th>User's login</th>
+						<th>Avatar</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat="user in usersData | limitTo:rowLimit | orderBy: sortColumn">
+						<td>{{user.id}}</td>
+						<td><a href="{{user.html_url}}">{{user.login}}</a></td>
+						<td><img src="{{user.avatar_url}}" alt="ava" class="img-responsive img-rounded"/></td>
+					</tr>
+				</tbody>			
+			</table>
+			</div>
+		</div>	
 	</div>
 	
 		<!-- JQuery CDN -->

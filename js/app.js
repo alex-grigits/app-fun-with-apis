@@ -5,11 +5,11 @@ angular.module('app', [])
 
         $scope.userLoaded = false;
 
-
-        $scope.getUsers = function (){
-          $http.get("https://api.github.com/users")
+        $http.get("https://api.github.com/users")
               .success(function (data) {
                   $scope.usersData = data;
-              });
-        };
+        });
+        
+        $scope.rowLimit = 10;
+        $scope.sortColumn = "id";
 }]);
