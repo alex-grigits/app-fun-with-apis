@@ -1,6 +1,6 @@
-# App for fun with API's
+# App for fun with APIs
 
-Application for testing different open API's
+Application for testing different open APIs
 
 ## Built With
 
